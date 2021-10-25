@@ -3,13 +3,11 @@
 import KWM_View from "../kwmJS/core/kwm-view.js";
 
 export default class Hotel{
-    constructor(id, hotel) { //hotel = acf Objekt
+    constructor(id, hotel) { //hotel = acf object
         Object.assign(this, hotel);
         this.id = id;
         console.log(this);
     }
-
-
 
     renderListMarkup(container){
         let self = this;
@@ -110,8 +108,5 @@ export default class Hotel{
     capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
-
-
-
 
 }
