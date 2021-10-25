@@ -3,21 +3,21 @@
 import KWM_View from "../kwmJS/core/kwm-view.js";
 
 export default class City{
-    constructor(id, city) { //city = acf Objekt
-        Object.assign(this, city); //alles aus "city" wird auf das this kopiert - wichtig - kopiert alle Eigenschaften eines Obejekts auf ein anderes
-        this.id = id; //damit auch die id übergeben wird
+    constructor(id, city) { //city = acf object
+        Object.assign(this, city); //copies all properties of an object to another one; everything from "city" is copied to "this"
+        this.id = id; //to also pass the id
     }
 
     renderListMarkup(container){
         let self = this;
-        KWM_View.renderTemplate("city.list", container, { //renderTemplate spielt uns ein Teil Template in den Container
+        KWM_View.renderTemplate("city.list", container, { //renderTemplate inserts the subtemplate city.list into the container
             id: this.id,
             name: this.name,
             country: this.country,
             nickname: this.nickname,
             image: this.image,
         }).then(function(){
-            return new Promise((resolve, reject)=>{ //liefert ein Promise wenn das erledigt ist
+            return new Promise((resolve, reject)=>{ //returns a promise when everything is done
                 self.addFavHandler(self.id);
                 resolve();
             });
@@ -32,15 +32,15 @@ export default class City{
             nickname: this.nickname,
             image: this.image,
             id: this.id
-        }).then(async function (){ //async damit await möglich ist
+        }).then(async function (){ //use async to enable await
             self.addFavHandler(self.id);
-            let hotelsOfCity = await window.Core.model.getHotelsOfCity(self.id); //innerhalb von then ist Scope von this falsch
+            let hotelsOfCity = await window.Core.model.getHotelsOfCity(self.id); //inside of then the scope of this is wrong
             let hotels_container = document.getElementById("hotels_of_city");
             for(let hotel of hotelsOfCity){
                 let div = document.createElement("div");
                 div.classList.add("hotel");
                 hotels_container.append(div);
-                hotel.renderListMarkup(div); //in dieses Div rendert das Hotel sein ListMarkup
+                hotel.renderListMarkup(div); //into this div the hotel renders its ListMarkup
             }
             return new Promise((resolve, reject)=>{
                 resolve();
