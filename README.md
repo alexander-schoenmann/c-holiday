@@ -8,12 +8,12 @@ A single page application with its own templage engine. After logging in, you ca
 Download the project from the master branch and save the zip file on your local machine. Unzip the zip file into a new folder (e.g. project).
 
 ### 1.2 Server
-It is possible to run the app via localhost as well as via webhosting.
+It is possible to run the app via localhost as well as via webhost.
 
 #### localhost
 If you want to run the app via localhost, I recommend to download the programme Xampp (https://www.apachefriends.org/de/download.html). After the download is complete, navigate to C:\xampp\htdocs and paste the previously created folder "project".
 
-#### webhosting
+#### webhost
 To make your app permanently accessible, I recommend using a web host. After you have received the access data from your hosting provider, you can connect to your web server via ftp. Then navigate to the folder public_html and paste the previously created folder "project".
 
 ### 1.3 Launch the app
